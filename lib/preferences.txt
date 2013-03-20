@@ -1,0 +1,5 @@
+### for add in preferences file on lib
+
+# DUINOS + FREERTOS PREFERENCES
+duinos=DUINOS
+freertos=FREERTOS
