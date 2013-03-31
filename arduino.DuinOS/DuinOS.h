@@ -35,7 +35,7 @@ extern unsigned portBASE_TYPE mainLoopStackSize;
 #define HIGH_PRIORITY		(tskIDLE_PRIORITY + 2)
 
 #define taskLoop(name)\
-void name##Function();\
+void name##Function() __attribute__((__section__(".text.lowtext"))); \
 xTaskHandle name;\
 void name##_Task(void *pvParameters)\
 {\
@@ -48,7 +48,7 @@ void name##Function()
 //taskLoop()macro use and reference them:
 #define declareTaskLoop(name)\
 	extern xTaskHandle name;\
-    void name##_Task(void*)
+    void name##_Task(void*) __attribute__((__section__(".text.lowtext")))
 
 
 #define createTaskLoop(name, priority)\
